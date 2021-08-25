@@ -1,0 +1,32 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-color: #f8f8ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginContainer {
+  display: grid;
+  height: auto;
+  max-height: 50px;
+  width: 30%;
+  max-width: 200px;
+  gap: 10px;
+  grid-template-areas:
+    "login signup"
+    "google google";
+}
+
+.login {
+  grid-area: login;
+}
+
+.signup {
+  grid-area: signup;
+}
+
+.google {
+  grid-area: google;
+}

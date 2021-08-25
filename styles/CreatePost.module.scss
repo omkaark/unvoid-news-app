@@ -1,0 +1,21 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-color: #f8f8ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.createPost {
+  display: flex;
+  flex-direction: column;
+}
+
+.createPost > * {
+  margin-bottom: 10px;
+}
+
+.createPost > *:nth-child(3) {
+  height: 200px;
+}

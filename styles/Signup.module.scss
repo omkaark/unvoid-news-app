@@ -1,0 +1,23 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-color: #f8f8ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.signup > input {
+  margin-bottom: 20px;
+}
+
+.signup > button {
+  width: 100%;
+}

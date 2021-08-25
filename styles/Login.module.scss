@@ -1,0 +1,23 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-color: #f8f8ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.login > input {
+  margin-bottom: 20px;
+}
+
+.login > button {
+  width: 100%;
+}
