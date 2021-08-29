@@ -8,13 +8,24 @@ import { useEffect } from "react";
 const CreatePost: NextPage = () => {
   const router = useRouter();
   const [session, loading] = useSession();
+  useEffect(() => {
+    if (session === null) {
+      router.push("/");
+    }
+  }, []);
   const handleCreate: Function = async (e) => {
     e.preventDefault();
+    console.log(
+      JSON.stringify({
+        title: e.target.title.value,
+        imgUrl: e.target.imgUrl.value,
+        content: e.target.content.value,
+      })
+    );
     const res = await fetch("/api/create", {
       body: JSON.stringify({
         title: e.target.title.value,
         imgUrl: e.target.imgUrl.value,
-        author: session.user.name || "Author",
         content: e.target.content.value,
       }),
       headers: {
@@ -22,7 +33,7 @@ const CreatePost: NextPage = () => {
       },
       method: "POST",
     });
-    router.push("/blogs");
+    router.push("/");
   };
   return (
     <div className={styles.container}>
@@ -44,15 +55,6 @@ const CreatePost: NextPage = () => {
 };
 
 export async function getServerSideProps(context) {
-  /*const session = await getSession(context);
-  if (!session) {
-    return {
-      redirect: {
-        destination: "/", //redirect user to homepage
-        permanent: false,
-      },
-    };
-  }*/
   return {
     props: {
       session: await getSession(context),

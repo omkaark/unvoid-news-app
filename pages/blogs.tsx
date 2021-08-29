@@ -59,6 +59,16 @@ const Blogs: NextPage = ({ posts }) => {
   );
 };
 
+/*export async function getStaticProps() {
+  const res = await fetch("http://localhost:3000/api/blogs");
+  const posts = await res.json();
+  return {
+    props: {
+      posts,
+    },
+  };
+}*/
+
 export async function getServerSideProps(context) {
   const res = await fetch("http://localhost:3000/api/blogs");
   const posts = await res.json();
