@@ -11,7 +11,7 @@ const SignUp: NextPage = () => {
       <Head>
         <title>Signup</title>
         <meta name="description" content="News that gets you thinking big" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.png" />
       </Head>
       <form className={styles.signup}>
         <input type="text" placeholder="First Name" />

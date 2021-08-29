@@ -11,7 +11,7 @@ const Home: NextPage = () => {
       <Head>
         <title>Login</title>
         <meta name="description" content="News that gets you thinking big" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.png" />
       </Head>
       <form className={styles.login}>
         <input type="email" placeholder="Email" />
