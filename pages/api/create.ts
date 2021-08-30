@@ -36,7 +36,9 @@ export default async function handler(
     post
       .save()
       .then((data) => {
-        return res.redirect("/blogs");
+        res.status(201).json({
+          info: data,
+        });
       })
       .catch((err) => {
         res.status(500).json({

@@ -15,17 +15,11 @@ const CreatePost: NextPage = () => {
   }, []);
   const handleCreate: Function = async (e) => {
     e.preventDefault();
-    console.log(
-      JSON.stringify({
-        title: e.target.title.value,
-        imgUrl: e.target.imgUrl.value,
-        content: e.target.content.value,
-      })
-    );
     const res = await fetch("/api/create", {
       body: JSON.stringify({
         title: e.target.title.value,
         imgUrl: e.target.imgUrl.value,
+        author: session?.user?.name || "Omkaar",
         content: e.target.content.value,
       }),
       headers: {

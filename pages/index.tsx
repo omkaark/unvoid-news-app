@@ -33,13 +33,13 @@ const Home: NextPage = () => {
             >
               Sign in google
             </button>
-            <button
+            {/*<button
               onClick={() =>
                 signIn("github", { callbackUrl: process.env.NEXTAUTH_URL })
               }
             >
               Sign in github
-            </button>
+            </button>*/}
           </>
         )}
         {session && (
