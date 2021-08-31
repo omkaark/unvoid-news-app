@@ -3,13 +3,16 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Blogs.module.scss";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getSession, useSession, signOut } from "next-auth/client";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 /* @ts-ignore */
 const Blogs: NextPage = ({ posts }) => {
   const router = useRouter();
   const [session, loading] = useSession();
+  const [navbarOption, setNavbarOption] = useState("");
   useEffect(() => {
     if (session === null) {
       router.push("/");
@@ -22,52 +25,25 @@ const Blogs: NextPage = ({ posts }) => {
         <meta name="description" content="News that gets you thinking big" />
         <link rel="icon" href="/favicon.png" />
       </Head>
-      <div className={styles.posts}>
-        {session && (
-          <>
-            Signed in as {/* @ts-ignore */}
-            {(session.user.name as String) || "Who"} <br />
-            <button onClick={() => signOut()}>Sign out</button>
-          </>
-        )}
-        {posts
-          ? posts.map((post, idx: number) => {
-              return (
-                <div key={idx} className={styles.blogPreviewContainer}>
-                  <img className={styles.image} src={post.imgUrl} alt=""></img>
-                  <div>
-                    <h2>{post.title}</h2>
-                    <h3>By {post.author}</h3>
-                    <p>{post.content.substring(0, 400)}...</p>
-                  </div>
-                </div>
-              );
-            })
+      <Navbar
+        session={session}
+        navbarOption={navbarOption}
+        setNavbarOption={setNavbarOption}
+      />
+      <h1>All Blogs</h1>
+      <div className={styles.blogPreviewsContainer}>
+        {session && posts
+          ? posts.map((post, idx) => (
+              <div className={styles.postCard} key={idx}>
+                <img className={styles.image} src={post.imgUrl} />
+              </div>
+            ))
           : ""}
       </div>
-      <div className={styles.createPostSection}>
-        <button
-          onClick={(e) => {
-            router.push("/create");
-            e.preventDefault();
-          }}
-        >
-          Create Post
-        </button>
-      </div>
+      <Footer />
     </div>
   );
 };
-
-/*export async function getStaticProps() {
-  const res = await fetch("http://localhost:3000/api/blogs");
-  const posts = await res.json();
-  return {
-    props: {
-      posts,
-    },
-  };
-}*/
 
 export async function getServerSideProps(context) {
   const res = await fetch("http://localhost:3000/api/blogs");

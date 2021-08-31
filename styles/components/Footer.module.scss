@@ -1,0 +1,19 @@
+@import "../constants/Colors.scss";
+@import "../constants/Fonts.scss";
+@import "../constants/Sizes.scss";
+
+.footer {
+  height: 120px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+}
+.footer > p {
+  color: #fff;
+}
+.footer > p > a {
+  color: #63a1ff;
+}

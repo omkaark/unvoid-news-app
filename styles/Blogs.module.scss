@@ -1,57 +1,30 @@
+@import "./constants/Colors.scss";
+@import "./constants/Fonts.scss";
+@import "./constants/Sizes.scss";
+
 .container {
-  background-color: #f8f8ff;
+  background-color: #{$backgroundGrey};
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-}
-
-.posts {
-  height: 90vh;
-  overflow-y: scroll;
-}
-
-.createPostSection {
-  background-color: black;
-  height: 10vh;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.posts {
-  width: 100%;
-}
-
-.blogPreviewContainer {
-  width: 90%;
-  height: 200px;
-  background-color: rgb(0, 0, 0);
-  display: flex;
-  margin: 10px auto;
-  padding-right: 10px;
-  border-radius: 20px;
-}
-
-.blogPreviewContainer > .image {
-  width: 200px;
-  height: 100%;
-  margin-right: 10px;
-  border-radius: 20px 0px 0px 20px;
-  object-fit: cover;
-}
-
-.blogPreviewContainer > div {
-  width: calc(100% - 200px);
-}
-
-.blogPreviewContainer > div > * {
-  color: #f6cd45;
-  padding-left: 10px;
-}
-
-.createPostSection > button {
-  background-color: #f6cd45;
-  color: #000;
+  font-family: #{$quicksand};
+  h1 {
+    font-size: 50px;
+  }
+  .blogPreviewsContainer {
+    margin-top: 20px;
+    min-height: calc(100vh - 65px);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    .postCard {
+      object-fit: cover;
+      height: 500px;
+      .previewImage {
+        width: 100px;
+      }
+    }
+  }
 }
