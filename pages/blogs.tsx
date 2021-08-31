@@ -35,7 +35,24 @@ const Blogs: NextPage = ({ posts }) => {
         {session && posts
           ? posts.map((post, idx) => (
               <div className={styles.postCard} key={idx}>
-                <img className={styles.image} src={post.imgUrl} />
+                <img className={styles.previewImage} src={post.imgUrl} />
+                <div className={styles.contentArea}>
+                  <h2>{post.title}</h2>
+                  <h3>By {post.author}</h3>
+                  <p>{post.content.substring(0, 180)}...</p>
+                </div>
+                {/*<div className={styles.tags}>
+                  {post.tags?.map((tag, idx) => (
+                    <div key={idx} className={styles.tag}>
+                      {tag}
+                    </div>
+                  ))}
+                  </div>*/}
+                <div className={styles.tags}>
+                  <div className={styles.tag}>Computer Science</div>
+                  <div className={styles.tag}>Technology</div>
+                  <div className={styles.tag}>ED Tech</div>
+                </div>
               </div>
             ))
           : ""}
