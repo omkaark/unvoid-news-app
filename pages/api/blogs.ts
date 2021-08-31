@@ -26,10 +26,19 @@ export default async function handler(
   res: NextApiResponse
 ) {
   let session = await getSession({ req });
+  let page: number =
+    parseInt(<string>req.query.page) < 1 ? 1 : parseInt(<string>req.query.page);
+  const postsPerPage = 6;
   try {
     if (req.method == "GET") {
-      const posts = await Post.find().skip(0).limit(10);
-      res.json(posts);
+      const posts = await Post.find()
+        .skip((page - 1) * postsPerPage)
+        .limit(6);
+      const count = await Post.find().count();
+      res.status(201).json({
+        count: count,
+        posts,
+      });
     }
   } catch (e) {
     res.status(404).json({

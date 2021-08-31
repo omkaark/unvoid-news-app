@@ -25,16 +25,8 @@ import { useState } from "react";
 const Home: NextPage = () => {
   const router = useRouter();
   const [session, loading] = useSession();
-  useEffect(() => {
-    if (session !== null) {
-      router.push("/blogs");
-    }
-  }, []);
   const [login, setLogin] = useState(false);
   const [navbarOption, setNavbarOption] = useState("");
-  useEffect(() => {
-    console.log(navbarOption);
-  }, [navbarOption]);
   return (
     <>
       {navbarOption === "login" ? (

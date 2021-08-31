@@ -19,7 +19,9 @@ const LoginPopup = ({ navbarOption, setNavbarOption }) => {
             style={{ backgroundColor: "#4285F4", color: "#fff" }}
             className={styles["google-btn"]}
             onClick={() =>
-              signIn("google", { callbackUrl: process.env.NEXTAUTH_URL })
+              signIn("google", {
+                callbackUrl: process.env.NEXTAUTH_URL,
+              })
             }
           >
             <div className={styles["google-icon-wrapper"]}>
@@ -37,7 +39,9 @@ const LoginPopup = ({ navbarOption, setNavbarOption }) => {
             className={styles["google-btn"]}
             style={{ backgroundColor: "#fff" }}
             onClick={() =>
-              signIn("google", { callbackUrl: process.env.NEXTAUTH_URL })
+              signIn("google", {
+                callbackUrl: process.env.NEXTAUTH_URL,
+              })
             }
           >
             <div className={styles["google-icon-wrapper"]}>

@@ -2,16 +2,25 @@
 @import "../constants/Fonts.scss";
 @import "../constants/Sizes.scss";
 
+.navbarShell {
+  height: 64px;
+  width: 100%;
+}
+
 .navbar {
   height: 64px;
   width: 100%;
-  max-width: #{$maxWindowWidth};
+  /*max-width: #{$maxWindowWidth};*/
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0px 50px;
   font-family: #{$quicksand};
+  position: fixed;
+  top: 0;
+  background-color: #{$white};
+  z-index: 2000;
 }
 
 .notLoggedInOptions {
@@ -62,5 +71,8 @@
     &:hover {
       background-color: #{$yellow};
     }
+  }
+  .optionActive {
+    background-color: #{$yellow};
   }
 }
