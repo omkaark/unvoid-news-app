@@ -7,6 +7,7 @@ const LoginPopup = ({ navbarOption, setNavbarOption }) => {
   if (navbarOption !== "login") {
     return <></>;
   }
+  console.log(process.env);
   return (
     <>
       <div className={styles.overlay}>

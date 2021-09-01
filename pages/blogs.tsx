@@ -52,7 +52,6 @@ const Blogs: NextPage = ({ posts, postCount }) => {
   const router = useRouter();
   const [session, loading] = useSession();
   const [navbarOption, setNavbarOption] = useState("blogs");
-  console.log(posts);
   useEffect(() => {
     router.query.page === null ||
     router.query.page === undefined ||
