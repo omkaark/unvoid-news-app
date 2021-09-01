@@ -51,7 +51,8 @@ const Paginator = ({ postCount, currentPage }) => {
 const Blogs: NextPage = ({ posts, postCount }) => {
   const router = useRouter();
   const [session, loading] = useSession();
-  const [navbarOption, setNavbarOption] = useState("");
+  const [navbarOption, setNavbarOption] = useState("blogs");
+  console.log(posts);
   useEffect(() => {
     router.query.page === null ||
     router.query.page === undefined ||
@@ -94,19 +95,14 @@ const Blogs: NextPage = ({ posts, postCount }) => {
                   <div className={styles.contentArea}>
                     <h2>{post.title}</h2>
                     <h3>By {post.author}</h3>
-                    <p>{post.content.substring(0, 180)}...</p>
+                    <p>{post.content.substring(0, 130)}...</p>
                   </div>
-                  {/*<div className={styles.tags}>
-                  {post.tags?.map((tag, idx) => (
-                    <div key={idx} className={styles.tag}>
-                      {tag}
-                    </div>
-                  ))}
-                  </div>*/}
                   <div className={styles.tags}>
-                    <div className={styles.tag}>Computer Science</div>
-                    <div className={styles.tag}>Technology</div>
-                    <div className={styles.tag}>ED Tech</div>
+                    {post.tags?.map((tag: String, idx) => (
+                      <div key={idx} className={styles.tag}>
+                        {tag}
+                      </div>
+                    ))}
                   </div>
                 </div>
               </Link>

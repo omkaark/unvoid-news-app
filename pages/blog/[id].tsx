@@ -17,7 +17,7 @@ const BlogArticle: NextPage = ({ post }) => {
       <img src={post.imgUrl} />
       <h2>{post.title}</h2>
       <h3>By {post.author}</h3>
-      <p>{post.title}</p>
+      <p>{post.content}</p>
     </div>
   );
 };

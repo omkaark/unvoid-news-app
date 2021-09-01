@@ -87,6 +87,7 @@
     }
     .postCard:hover {
       opacity: 0.85;
+      transform: scale(1.02);
       .previewImage {
         transform: scale(1.01);
       }

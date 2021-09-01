@@ -7,7 +7,6 @@ import { signIn, signOut, useSession } from "next-auth/client";
 import { useEffect, useRef } from "react";
 import { getSession } from "next-auth/client";
 import React from "react";
-import Lottie from "react-lottie-player";
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -17,9 +16,6 @@ import aboveTheFoldImage from "../static/above_the_fold_image.svg";
 import section1Image from "../static/section1_image.svg";
 import section2Image from "../static/section2_image.svg";
 import section3Image from "../static/section3_image.svg";
-import sec1AnimData from "../static/HomePageSection1SVGAnim.json";
-import sec2AnimData from "../static/HomePageSection2SVGAnim.json";
-import sec3AnimData from "../static/HomePageSection3SVGAnim.json";
 import { useState } from "react";
 
 const Home: NextPage = () => {

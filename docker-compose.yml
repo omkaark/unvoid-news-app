@@ -1,0 +1,25 @@
+version: "2"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "3000:3000"
+    networks:
+      - unvoidnetwork
+  mongodb:
+    image: mongo
+    restart: always
+    container_name: mongodb
+    volumes:
+      - ./data-node:/data/db
+    ports:
+      - 27017:27017
+    command: mongod --noauth
+    networks:
+      - unvoidnetwork
+networks:
+  unvoidnetwork:
+    driver: "bridge"

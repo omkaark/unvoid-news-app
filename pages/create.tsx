@@ -35,7 +35,7 @@ const CreatePost: NextPage = () => {
       body: JSON.stringify({
         title: e.target.title.value,
         imgUrl: e.target.imgUrl.value,
-        author: session?.user?.name || "Omkaar",
+        author: session?.user?.name,
         content: e.target.content.value,
         tags: tags,
       }),
@@ -44,7 +44,7 @@ const CreatePost: NextPage = () => {
       },
       method: "POST",
     });
-    router.push("/");
+    router.push("/blogs");
   };
   const [navbarOption, setNavbarOption] = useState("create");
   return (

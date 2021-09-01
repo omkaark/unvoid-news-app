@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 const Post = require("../../models/Post");
 
 if (mongoose.connection.readyState != 1) {
-  mongoose.connect("mongodb://localhost:27017/blogs", {
+  mongoose.connect(`${process.env.MONGO_URI}blogs`, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
@@ -32,6 +32,7 @@ export default async function handler(
       imgUrl: req.body.imgUrl,
       author: req.body.author,
       content: req.body.content,
+      tags: req.body.tags,
     });
     post
       .save()

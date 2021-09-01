@@ -56,7 +56,7 @@ const Navbar = ({ session, navbarOption, setNavbarOption }) => {
           >
             <Image
               className={styles.optionImage}
-              src={createBlogIcon}
+              src={viewBlogsIcon}
               width={30}
               height={30}
             />
@@ -71,7 +71,7 @@ const Navbar = ({ session, navbarOption, setNavbarOption }) => {
               router.push("/create");
             }}
           >
-            <Image className={styles.optionImage} src={viewBlogsIcon} />
+            <Image className={styles.optionImage} src={createBlogIcon} />
             <p>Create Post</p>
           </div>
           <div
