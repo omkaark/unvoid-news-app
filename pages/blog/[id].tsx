@@ -23,7 +23,7 @@ const BlogArticle: NextPage = ({ post }) => {
 };
 
 BlogArticle.getInitialProps = async (context) => {
-  const res = await fetch("http://localhost:3000/api/blog/" + context.query.id);
+  const res = await fetch("/api/blog/" + context.query.id);
   const data = await res.json();
   return { post: data };
 };

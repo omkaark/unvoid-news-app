@@ -120,11 +120,9 @@ const Blogs: NextPage = ({ posts, postCount }) => {
 export async function getServerSideProps(context) {
   let res: any = 0;
   if (context.query.page !== undefined) {
-    res = await fetch(
-      `http://localhost:3000/api/blogs?page=${context.query.page}`
-    );
+    res = await fetch(`/api/blogs?page=${context.query.page}`);
   } else {
-    res = await fetch(`http://localhost:3000/api/blogs?page=1`);
+    res = await fetch(`/api/blogs?page=1`);
   }
   const data = await res.json();
   return {

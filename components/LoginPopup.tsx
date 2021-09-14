@@ -25,6 +25,7 @@ const LoginPopup = ({ navbarOption, setNavbarOption }) => {
               })
             }
           >
+            {"NEXTAUT+= " + process.env.NEXTAUTH_URL}
             <div className={styles["google-icon-wrapper"]}>
               <img
                 className={styles["google-icon-svg"]}
